@@ -52,19 +52,23 @@ namespace VilaItalia.Controllers
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BalcaoId,ClienteId")] Balcao balcao,List<int>ProdutosId,List<int>ReceitasId)
+        public ActionResult Create([Bind(Include = "BalcaoId,ClienteId")] Balcao balcao,string Tamanho1,List<int>ProdutosId,List<int>ReceitasId)
         {
+            int cont = 0;
+            Pizza pizza = new Pizza();
 
-            Pizza pizza = new Pizza
-            {
-                BalcaoId = balcao.BalcaoId,
-                Balcao = balcao
-            };
+
+            pizza.Tamanho = Tamanho1;
+            
+            db.Pizzas.Add(pizza);
+            db.SaveChanges();
+
             foreach (int id in ReceitasId)
             {
+                cont += 1;
                 Receita receita= db.Receitas.Find(id);
                 balcao.ValorTotal += receita.PrecoFixo;
-                pizza.Receitas.Add(receita);
+                pizza.Receitas [cont] = receita; 
 
             }
             foreach(int id in ProdutosId)
@@ -74,7 +78,7 @@ namespace VilaItalia.Controllers
                 balcao.Produtos.Add(produto);
             }
             
-            balcao.Pizzas.Add(pizza);
+            db.Pizzas.Add(pizza);
             db.Entry(pizza).State = EntityState.Modified;
 
             db.Balcaos.Add(balcao);

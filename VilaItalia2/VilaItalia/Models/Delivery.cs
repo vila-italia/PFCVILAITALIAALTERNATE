@@ -8,7 +8,7 @@ namespace VilaItalia.Models
     public class Delivery
     {
         public int DeliveryId { get; set; }
-        public int? ClienteId { get; set; }
+        public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
         public virtual ICollection<Pizza> Pizzas { get; set; }
         public int MotoboyId { get; set; }

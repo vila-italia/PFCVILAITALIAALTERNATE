@@ -186,6 +186,22 @@
     <Compile Include="Migrations\201905281201396_[Valorfixobalcao].Designer.cs">
       <DependentUpon>201905281201396_[Valorfixobalcao].cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905301339471_[PizzaEmPedido].cs" />
+    <Compile Include="Migrations\201905301339471_[PizzaEmPedido].Designer.cs">
+      <DependentUpon>201905301339471_[PizzaEmPedido].cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905301403599_[ReceitaPizza].cs" />
+    <Compile Include="Migrations\201905301403599_[ReceitaPizza].Designer.cs">
+      <DependentUpon>201905301403599_[ReceitaPizza].cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905301414047_[Teste3].cs" />
+    <Compile Include="Migrations\201905301414047_[Teste3].Designer.cs">
+      <DependentUpon>201905301414047_[Teste3].cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905301420548_[Teste4].cs" />
+    <Compile Include="Migrations\201905301420548_[Teste4].Designer.cs">
+      <DependentUpon>201905301420548_[Teste4].cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Balcao.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -300,6 +316,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\PizzaPedidoBalcao\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -344,6 +361,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905281201396_[Valorfixobalcao].resx">
       <DependentUpon>201905281201396_[Valorfixobalcao].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905301339471_[PizzaEmPedido].resx">
+      <DependentUpon>201905301339471_[PizzaEmPedido].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905301403599_[ReceitaPizza].resx">
+      <DependentUpon>201905301403599_[ReceitaPizza].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905301414047_[Teste3].resx">
+      <DependentUpon>201905301414047_[Teste3].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905301420548_[Teste4].resx">
+      <DependentUpon>201905301420548_[Teste4].cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

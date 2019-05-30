@@ -11,6 +11,7 @@ namespace VilaItalia.Models
         public string Nome { get; set; }
         public double PrecoSugerido { get; set; }
         public double PrecoFixo { get; set; }
+       
 
         public virtual ICollection<Receita_Ingrediente> Receita_Ingrediente { get; set; }
     }
