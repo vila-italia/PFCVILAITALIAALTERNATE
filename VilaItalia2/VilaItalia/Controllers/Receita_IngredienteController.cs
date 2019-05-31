@@ -56,11 +56,12 @@ namespace VilaItalia.Controllers
             {
                 foreach (var id in ingredienteId)
                 {
-                    receita_Ingrediente.IngredienteId = id ;
+                    receita_Ingrediente.IngredienteId = id;
                     db.Receita_Ingrediente.Add(receita_Ingrediente);
                     db.SaveChanges();
+
                 }
-                
+
                 return RedirectToAction("Index");
             }
 
@@ -128,6 +129,49 @@ namespace VilaItalia.Controllers
             db.Receita_Ingrediente.Remove(receita_Ingrediente);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Adicionar(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Receita_Ingrediente rc = db.Receita_Ingrediente.Find(id);
+            if (rc == null)
+            {
+                return HttpNotFound();
+            }
+            return View(rc);
+        }
+
+        // POST: Ingredientes/Edit/5
+        // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
+        // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Adicionar(int id, int quantidadeM, int quantidadeF, int quantidadeG, int precoM, int precoG, int precoF)
+        {
+            Receita_Ingrediente rc = db.Receita_Ingrediente.Find(id);
+            rc.QuantidadeM = quantidadeM;
+            rc.QuantidadeG = quantidadeG;
+            rc.QuantidadeF = quantidadeF;
+            rc.PrecoM = precoM;
+            rc.PrecoG = precoG;
+            rc.PrecoF = precoF;
+            if (ModelState.IsValid)
+            {
+                db.Entry(rc).State = EntityState.Modified;
+
+                db.SaveChanges();
+                ICollection<Receita_Ingrediente> ingredientes = db.Receita_Ingrediente.Where(r => r.ReceitaId == rc.ReceitaId).ToList();
+                Receita re = db.Receitas.Find(rc.ReceitaId);
+                re.CalcPreco(ingredientes);
+                db.Entry(re).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(rc);
         }
 
         protected override void Dispose(bool disposing)

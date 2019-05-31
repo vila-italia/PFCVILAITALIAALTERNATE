@@ -27,6 +27,7 @@ namespace VilaItalia.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.Ingredientes = db.Receita_Ingrediente.Where(r => r.ReceitaId == id);
             Receita receita = db.Receitas.Find(id);
             if (receita == null)
             {
@@ -52,6 +53,7 @@ namespace VilaItalia.Controllers
             {
                 db.Receitas.Add(receita);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

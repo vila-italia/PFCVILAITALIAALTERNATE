@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BeginCollectionItem, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -202,18 +205,33 @@
     <Compile Include="Migrations\201905301420548_[Teste4].Designer.cs">
       <DependentUpon>201905301420548_[Teste4].cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905302156038_[testin].cs" />
+    <Compile Include="Migrations\201905302156038_[testin].Designer.cs">
+      <DependentUpon>201905302156038_[testin].cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905302247334_[NAOAGUENTIOMAIS].cs" />
+    <Compile Include="Migrations\201905302247334_[NAOAGUENTIOMAIS].Designer.cs">
+      <DependentUpon>201905302247334_[NAOAGUENTIOMAIS].cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905302306189_[FuncionaPeloAmordeDeus].cs" />
+    <Compile Include="Migrations\201905302306189_[FuncionaPeloAmordeDeus].Designer.cs">
+      <DependentUpon>201905302306189_[FuncionaPeloAmordeDeus].cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Balcao.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\Estoque.cs" />
+    <Compile Include="Models\Extra.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Ingrediente.cs" />
+    <Compile Include="Models\IngredienteExtra.cs" />
     <Compile Include="Models\Mesa.cs" />
     <Compile Include="Models\Motoboy.cs" />
     <Compile Include="Models\Pizza.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Receita.cs" />
+    <Compile Include="Models\ReceitaAlterada.cs" />
     <Compile Include="Models\Receita_Ingrediente.cs" />
     <Compile Include="Models\VilaItaliaContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -313,6 +331,8 @@
     <Content Include="Views\Pizzas\Details.cshtml" />
     <Content Include="Views\Pizzas\Edit.cshtml" />
     <Content Include="Views\Pizzas\Index.cshtml" />
+    <Content Include="Views\Receita_Ingrediente\Adicionar.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -373,6 +393,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905301420548_[Teste4].resx">
       <DependentUpon>201905301420548_[Teste4].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905302156038_[testin].resx">
+      <DependentUpon>201905302156038_[testin].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905302247334_[NAOAGUENTIOMAIS].resx">
+      <DependentUpon>201905302247334_[NAOAGUENTIOMAIS].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905302306189_[FuncionaPeloAmordeDeus].resx">
+      <DependentUpon>201905302306189_[FuncionaPeloAmordeDeus].cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

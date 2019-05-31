@@ -9,8 +9,8 @@ namespace VilaItalia.Models
     {
         public int PizzaId { get; set; }
         public string Tamanho { get; set; }
-        // public virtual ICollection<Receita> Receitas { get; set; }
-        public virtual List<Receita> Receitas { get; set; }
+        public  List<Receita>Sabores { get; set; }
+       // public virtual List<Receita> Receitas { get; set; }
         public int? BalcaoId { get; set; }
         public virtual Balcao Balcao { get; set; }
         public int? MesaId { get; set; }

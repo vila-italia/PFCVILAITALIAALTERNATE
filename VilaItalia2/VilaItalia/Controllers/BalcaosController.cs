@@ -37,6 +37,17 @@ namespace VilaItalia.Controllers
             }
             return View(balcao);
         }
+        //GET: VIEW BEGINCOLLECITON
+       /* public ActionResult AdicionaReceita()
+        {
+            var receita = new Receita();
+            {
+                //receita.ReceitaId
+            };
+
+            return PartialView("_Receita", receita);
+        }*/
+
 
         // GET: Balcaos/Create
         public ActionResult Create()
@@ -54,7 +65,7 @@ namespace VilaItalia.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BalcaoId,ClienteId")] Balcao balcao,string Tamanho1,List<int>ProdutosId,List<int>ReceitasId)
         {
-            int cont = 0;
+            //int cont = 0;
             Pizza pizza = new Pizza();
 
 
@@ -62,23 +73,27 @@ namespace VilaItalia.Controllers
             
             db.Pizzas.Add(pizza);
             db.SaveChanges();
+            List<Receita> pipizza = new List<Receita>();
+        
+             foreach (int id in ReceitasId)
+             {
+                 //cont += 1;
+                 Receita receita= db.Receitas.Find(id);
+                 balcao.ValorTotal += receita.PrecoFixo;
+                 pipizza.Add(receita); 
 
-            foreach (int id in ReceitasId)
-            {
-                cont += 1;
-                Receita receita= db.Receitas.Find(id);
-                balcao.ValorTotal += receita.PrecoFixo;
-                pizza.Receitas [cont] = receita; 
-
-            }
-            foreach(int id in ProdutosId)
+             }
+             pizza.Sabores = pipizza;
+            List<Produto> produtos = new List<Produto>();
+            foreach (int id in ProdutosId)
             {
                 Produto produto = db.Produtoes.Find(id);
                 balcao.ValorTotal += produto.PrecoVenda;
-                balcao.Produtos.Add(produto);
+                produtos.Add(produto);
             }
-            
-            db.Pizzas.Add(pizza);
+            balcao.Produtos = produtos;
+
+            //db.Pizzas.Add(pizza);
             db.Entry(pizza).State = EntityState.Modified;
 
             db.Balcaos.Add(balcao);
